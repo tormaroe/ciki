@@ -12,6 +12,6 @@ FIXME: write
 
 ## License
 
-Copyright (C) 2010 Torbjørn Marø
+Copyright (C) 2010 Torbj&oslash;rn Mar&oslash;
 
 Distributed under the Eclipse Public License, the same as Clojure.
