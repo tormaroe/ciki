@@ -7,7 +7,7 @@
       "document.getElementById('wiki').value")
 
 (defn ciki-redirect [wiki]
-      (str "document.location = '/wiki/' + " wiki ";"))
+      (str "document.location = '/' + " wiki ";"))
 
 (defn header [pagetitle]
       [:div#header {:style (str "border-bottom: " silver-line
@@ -20,7 +20,7 @@
                    [:span {:style "font-size:14pt;font-weight:bold;"} 
                           (link-to "/" "ciki")
                           " &gt; "
-                          (link-to (str "/wiki/" pagetitle) pagetitle)]])
+                          (link-to (str "/" pagetitle) pagetitle)]])
 
 (defn footer []
       [:div#footer {:style (str "border-top: " silver-line

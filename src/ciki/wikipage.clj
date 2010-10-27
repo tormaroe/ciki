@@ -3,8 +3,8 @@
           ciki.data
           hiccup.core hiccup.form-helpers hiccup.page-helpers))
 
-(defn view-link [id] (link-to (str "/wiki/" id) "View"))
-(defn edit-link [id] (link-to (str "/edit/" id) "Edit"))
+(defn view-link [id] (link-to (str "/" id)         "View"))
+(defn edit-link [id] (link-to (str "/" id "/edit") "Edit"))
 
 (defn compile-markdown [text]
       (.markdownToHtml (org.pegdown.PegDownProcessor.) text))
@@ -25,7 +25,7 @@
                      :submit-text "Create page"
                      :note        [:div {:style "color:red;"} 
                                         "Page does not yet exist. Create it now:"] })]
-        (form-to [(args :method) "/wiki"]               
+        (form-to [(args :method) (str "/" (args :id))]               
                  (hidden-field "wiki-id" (args :id))
                  (args :note)
                  (text-area {:rows 20 :style "width:100%;"}
