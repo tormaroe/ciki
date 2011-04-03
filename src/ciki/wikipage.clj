@@ -41,6 +41,23 @@
             (render-content page)
             (render-form id page)))))
 
+(defn render-all []
+      (letfn [(pages-2-list [pages]
+                            [:ul (map (fn [page]
+                                          [:li (link-to (str "/" (:lookup page))
+                                                        (:name page))])
+                                      pages)])]
+             (templates/page "all"
+                             (let [pages (sort-by :lookup (all-pages))
+                                   page-groups (split-at (/ (count pages) 2) 
+                                                         pages)]
+                               [:div
+                                 [:h2 "All pages"]
+                                 [:table {:width "100%"}
+                                         [:tr
+                                           [:td (pages-2-list (page-groups 0))]
+                                           [:td (pages-2-list (page-groups 1))]]]]))))
+
 (defn save [save-fn params]
       (let [id (params "wiki-id")]
         (save-fn id (params "wiki-content"))

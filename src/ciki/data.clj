@@ -8,6 +8,9 @@
           .toLowerCase
           (.replace " " "")))
 
+(defn all-pages []
+      (fetch :page))
+
 (defn fetch-page [name]
       (fetch-one :page :where 
                  {:lookup (fix-lookup-name name)}))

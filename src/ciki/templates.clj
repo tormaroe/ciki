@@ -13,6 +13,7 @@
       [:div#header {:style (str "border-bottom: " silver-line
                                 "padding-bottom:2px;")}
                    [:div#search {:style "float:right;"}
+                                (link-to "/all" "All pages")
                                 (text-field "wiki")
                                 (submit-button 
                                   {:onClick (ciki-redirect (searchbox-value))} 
